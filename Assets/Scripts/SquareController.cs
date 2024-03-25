@@ -1,7 +1,8 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,12 +12,16 @@ public class SquareController : MonoBehaviour
     // Start is called before the first frame update
     public float timeRemaining = 60;
     public Text countdownText;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
+
+    private Vector2 shootDirection;
     void Start()
-    { 
+    {
         StartCoroutine(Countdown());
     }
     IEnumerator Countdown()
-        
+
     {
         while (timeRemaining > 0)
         {
@@ -25,12 +30,32 @@ public class SquareController : MonoBehaviour
             countdownText.text = "Time: " + timeRemaining.ToString();
 
         }
-        countdownText.text = "Time's up!";
+        countdownText.text = "GAME OVER";
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            shootDirection = Vector2.left;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            shootDirection = Vector2.right;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            shootDirection = Vector2.up;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        { 
+            shootDirection = Vector2.down;
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        { 
+            Shoot ();
+        }
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, vertical, 0f).normalized;
@@ -59,5 +84,23 @@ public class SquareController : MonoBehaviour
             transform.position = firstPosition;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("MapEdge"))
+        {
+            Debug.Log("xxxxxx");
+            Vector2 fistPosition = new Vector2(-6, -3);
+            transform.position = fistPosition;
+        }
+    }
+    void Shoot()
+    {
+        GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D>();
+        if (bulletRb != null)
+        {
 
+            bulletRb.velocity = shootDirection * bulletSpeed;  // Bắn theo hướng "up" của GameObject
+        }
+    }
 }

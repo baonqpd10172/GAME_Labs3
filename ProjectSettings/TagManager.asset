@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Square
   - Circle
+  - Poin
+  - MapEdge
   layers:
   - Default
   - TransparentFX
