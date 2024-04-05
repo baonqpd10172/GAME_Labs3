@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 936104617}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: MapEdge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,6 +859,10 @@ PrefabInstance:
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 1679424143}
+    - target: {fileID: 9088770783561870269, guid: 0eb6fd50ecefd584ba4c9a256056af5e, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

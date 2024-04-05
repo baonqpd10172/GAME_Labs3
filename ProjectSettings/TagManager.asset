@@ -8,6 +8,7 @@ TagManager:
   - Circle
   - Poin
   - MapEdge
+  - Bullet
   layers:
   - Default
   - TransparentFX

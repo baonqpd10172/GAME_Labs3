@@ -12,13 +12,18 @@ public class SquareController : MonoBehaviour
     // Start is called before the first frame update
     public float timeRemaining = 60;
     public Text countdownText;
+    public Text scoreText;
+    private int score = 0;
+    public float moveSpeed = 5f;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
+    
 
     private Vector2 shootDirection;
     void Start()
     {
         StartCoroutine(Countdown());
+        UpdateScoreText();
     }
     IEnumerator Countdown()
 
@@ -32,7 +37,16 @@ public class SquareController : MonoBehaviour
         }
         countdownText.text = "GAME OVER";
     }
+    void UpdateScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+    }
 
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
+        UpdateScoreText();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,6 +87,7 @@ public class SquareController : MonoBehaviour
             Vector2 firstPosition = new Vector2(-7, 0);
             transform.position = firstPosition;
         }
+
         if (collision.gameObject.name.Equals("Box"))
         {
             Debug.Log("Win");
@@ -100,7 +115,7 @@ public class SquareController : MonoBehaviour
         if (bulletRb != null)
         {
 
-            bulletRb.velocity = shootDirection * bulletSpeed;  // Bắn theo hướng "up" của GameObject
+            bulletRb.velocity = shootDirection * bulletSpeed;  
         }
     }
 }
