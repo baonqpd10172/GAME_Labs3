@@ -9,6 +9,7 @@ TagManager:
   - Poin
   - MapEdge
   - Bullet
+  - Trap
   layers:
   - Default
   - TransparentFX
