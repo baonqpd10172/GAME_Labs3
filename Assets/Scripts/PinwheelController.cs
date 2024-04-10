@@ -1,10 +1,12 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PinWheelController : MonoBehaviour
+public class PinwheelController : MonoBehaviour
 {
     // Start is called before the first frame update
+
     public float rotationSpeed = 100f;
     void Start()
     {

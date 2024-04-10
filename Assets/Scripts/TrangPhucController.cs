@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrangPhucController : MonoBehaviour
 {
-    public GameObject trangPhuc;
+    public GameObject TrangPhuc;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,6 @@ public class TrangPhucController : MonoBehaviour
     }
     public void ShowMenu()
     {
-        trangPhuc.SetActive(true); // Hiển thị Menu
+        TrangPhuc.SetActive(true); // Hiển thị Menu
     }
 }
