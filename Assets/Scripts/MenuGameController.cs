@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         HideMenu();
-        LoadPlayerData();
+       
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class MenuController : MonoBehaviour
             else
             {
                 ShowMenu();
+                LoadPlayerData();
             }
         }
     }

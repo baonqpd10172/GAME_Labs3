@@ -80,7 +80,7 @@ public class SquareController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Circle"))
         {
 
-            Vector2 fistPosition = new Vector2(-7, -3);
+            Vector2 fistPosition = new Vector2(-6, -1);
             transform.position = fistPosition;
 
         }
@@ -93,7 +93,7 @@ public class SquareController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Pinwheel"))
         {
 
-            Vector2 fistPosition = new Vector2(-7, -3);
+            Vector2 fistPosition = new Vector2( - 6, -1);
             transform.position = fistPosition;
 
         }
@@ -106,7 +106,7 @@ public class SquareController : MonoBehaviour
         if (collision.CompareTag("MapEdge")) // Kiểm tra xem collider khác có phải là viền bản đồ không
         {
             // Dừng di chuyển của GameObject khi va chạm vào viền bản đồ
-            Vector2 fistPosition = new Vector2(-7, -3);
+            Vector2 fistPosition = new Vector2(-6, -1);
             transform.position = fistPosition;
         }
     }

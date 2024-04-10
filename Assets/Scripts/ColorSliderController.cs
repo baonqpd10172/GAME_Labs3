@@ -17,7 +17,7 @@ public class ColorSliderController : MonoBehaviour
 
     void Update()
     {
-        if (isGameOver && slider.value <= 0)
+        if (!isGameOver && slider.value <= 0)
         {
             GameOver();
         }

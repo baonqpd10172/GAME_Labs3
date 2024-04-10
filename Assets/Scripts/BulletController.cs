@@ -25,12 +25,14 @@ public class BuletController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Circle"))
         {
             playerData.playerScore++;
+            PlayerPrefs.SetInt("PlayerScore", playerData.playerScore);
             Destroy(collision.gameObject); // Đối tượng bị bắn
             Destroy(gameObject); // Viên đạn
         }
         if (collision.gameObject.tag.Equals("Pinwheel"))
         {
             playerData.playerScore++;
+            PlayerPrefs.SetInt("PlayerScore", playerData.playerScore);
             Destroy(collision.gameObject); // Đối tượng bị bắn
             Destroy(gameObject); // Viên đạn
         }
