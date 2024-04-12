@@ -93,7 +93,7 @@ public class SquareController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Pinwheel"))
         {
 
-            Vector2 fistPosition = new Vector2( - 6, -1);
+            Vector2 fistPosition = new Vector2( -6, -1);
             transform.position = fistPosition;
 
         }
